@@ -1,14 +1,28 @@
 # Vite Vue Starter
 
-This is a project template using [Vite](https://vitejs.dev/). It requires [Node.js](https://nodejs.org) v12+.
 
-To start:
+To reproduce:
 
 ```sh
-npm install
-npm run dev
+pnpm install
 
-# if using yarn:
-yarn
-yarn dev
+Check types:
+
+npx vue-tsc --build --force
+
 ```
+
+You will get
+```sh
+src/App.vue:6:19 - error TS7006: Parameter 'zone' implicitly has an 'any' type.
+
+6 store.zones.find((zone) => zone.r =='b');
+                    ~~~~
+
+
+Found 1 error.
+```
+
+If you change the version of pinia to 2.2.2
+
+You will get no error
